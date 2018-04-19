@@ -1,0 +1,5 @@
+"id","migration","batch"
+1,"2014_10_12_000000_create_users_table",1
+2,"2014_10_12_100000_create_password_resets_table",1
+3,"2018_04_10_133803_create_threads_table",1
+4,"2018_04_10_142200_create_replies_table",2
