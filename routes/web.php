@@ -24,3 +24,9 @@ Route::post('/replies/{reply}/favorites', 'FavoriteController@store');
 Route::delete('/replies/{reply}/favorites', 'FavoriteController@destroy');
 
 Route::get('/profiles/{user}', 'ProfileController@show')->name('profile');
+
+
+// Admin Panel Control
+Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Admin'], function() {
+  Route::get('/users', 'AdminController@index');
+});
