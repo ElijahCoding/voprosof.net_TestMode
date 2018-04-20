@@ -28,5 +28,5 @@ Route::get('/profiles/{user}', 'ProfileController@show')->name('profile');
 
 // Admin Panel Control
 Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Admin'], function() {
-  Route::get('/users', 'AdminController@index');
+  Route::get('/users', 'AdminController@index')->name('admin.users');
 });

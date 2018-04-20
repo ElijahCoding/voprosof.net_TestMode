@@ -69,6 +69,13 @@
                             <li>
                                 <a href="{{ route('profile', Auth::user()) }}">My Profile</a>
                             </li>
+
+                            @can ('admin')
+                              <li>
+                                <a href="{{ route('admin.users') }}">Admin</a>
+                              </li>
+                            @endcan
+
                             <li>
                                 <a href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
