@@ -42,4 +42,9 @@ class User extends Authenticatable
     {
       return $this->hasMany(Activity::class);
     }
+
+    public function viewedThreads()
+    {
+        return $this->belongsToMany(Thread::class, 'user_thread_views')->withTimestamps()->withPivot(['count', 'id']);
+    }
 }

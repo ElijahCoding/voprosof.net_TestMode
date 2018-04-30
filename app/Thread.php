@@ -64,4 +64,9 @@ class Thread extends Model
     {
       return $filters->apply($builder);
     }
+
+    public function viewedUsers()
+    {
+        return $this->belongsToMany(User::class, 'user_thread_views')->withTimestamps()->withPivot(['count']);
+    }
 }
