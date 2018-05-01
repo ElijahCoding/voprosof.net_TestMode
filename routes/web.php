@@ -32,5 +32,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Admi
 });
 
 // Google Oauth
-Route::get('login/google', 'Auth\LoginController@redirectToProvider');
-Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback');
+Route::get('/login/google', 'Auth\LoginController@redirectToProvider');
+Route::get('/login/google/callback', 'Auth\LoginController@handleProviderCallback');
+Route::get('/login/password/reset/{user}', 'Auth\LoginController@reset')->name('password.reset');

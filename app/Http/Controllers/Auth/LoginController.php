@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Auth;
 use Socialite;
+use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -57,6 +59,30 @@ class LoginController extends Controller
     {
         $user = Socialite::driver('google')->stateless()->user();
 
-        return $user->token;
+        $name = $user->name;
+        $email = $user->email;
+
+        $newUser = User::create([
+          'name' => $user->name,
+          'email' => $user->email,
+          'password' => 'password'
+        ]);
+
+        if ($user->token) {
+          return redirect()->route('password.reset', ['user' => $newUser]);
+        } else {
+          return redirect()->route('login');
+        }
+
+    }
+
+    public function reset(User $user)
+    {
+      return view('auth.reset', compact('user'));
+    }
+
+    public function update(User $user)
+    {
+
     }
 }
