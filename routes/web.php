@@ -30,3 +30,7 @@ Route::get('/profiles/{user}', 'ProfileController@show')->name('profile');
 Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Admin'], function() {
   Route::get('/users', 'AdminController@index')->name('admin.users');
 });
+
+// Google Oauth
+Route::get('login/google', 'Auth\LoginController@redirectToProvider');
+Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback');

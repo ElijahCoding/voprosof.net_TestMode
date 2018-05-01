@@ -11,6 +11,7 @@
         "doctrine/dbal": "^2.7",
         "laravel/framework": "5.4.*",
         "laravel/scout": "^4.0",
+        "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0"
     },
     "require-dev": {
